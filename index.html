@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+  <!--  <link rel="stylesheet" type="text/css" href="css/index.css" />-->
+    <!-- Include the jQuery library -->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+  <link rel="stylesheet" href="css/themes/qasr.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+  <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+    <title>qasralsahab</title>
+    <style type="text/css">
+body {
+    background: url(images/sky.jpg);
+    background-repeat:repeat-y;
+    background-position:center center;
+    background-attachment:scroll;
+    background-size:100% 100%;
+}
+.ui-page {
+    background: transparent;
+}
+.ui-content{
+    background: #fff;
+}
+</style>
+</head>
+
+<body id="app">
+  <div data-role="page">
+    <div class="ui-grid-solo">
+          <div class="ui-block-a">
+            <h1 style="text-align: center;">
+<img src="images/logo-white.png" align="center" style="height: 6em"/>
+</h1>
+          </div>
+        </div>
+
+
+
+<div data-role="main" class="ui-content" style="margin:10px;">
+  <img src="images/hotel.jpg" style="width:100%;" />
+      <div data-role="header">
+  <div data-role="navbar">
+    <ul>
+      <li><a data-icon="home"	href="#pageabout">عن الفندق</a></li>
+      <li><a  data-icon="grid" onclick="openlink($(this).attr('href'))" href="http://qasralsahab.com/hotel-booking/" >الحجز</a></li>
+      <li><a data-icon="mail" href="#pagetwo">إتصل بنا</a></li>
+    </ul>
+  </div>
+  </div>
+
+
+  </div>
+
+  <div data-role="footer">
+
+</div>
+</div>
+  <!-- -->
+
+    <div class="app" style="display:none;">
+        <h1></h1>
+        <div style="display:none;" id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+//app.initialize();
+//alert("fdfdfd");
+  //window.location="spec.html";
+        if (navigator.connection.type == Connection.NONE) {
+    navigator.notification.alert('An internet connection is required to continue');
+    alert("An internet connection is required to continue");
+  } else {
+//  window.location="http://qasralsahab.com/?page_id=4084&lang=ar";
+
+//  alert("wasal");
+//document.getElementById("app").innerHTML='<iframe src="http://qasralsahab.com/?page_id=4084&lang=ar" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;widt h:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>';
+  //document.write('<iframe src="http://qasralsahab.com" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%');
+ //document.write(';widt h:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>');
+  }
+function openlink(href){
+  var ref = cordova.InAppBrowser.open(href, '_blank', 'location=no');
+}
+function sysopenlink(href){
+  var ref = cordova.InAppBrowser.open(href, '_system', 'location=no');
+}
+    </script>
+
+    <div data-role="page" data-dialog="true" id="pagetwo">
+      <div data-role="header">
+        <h1>إتصل بنا</h1>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <p style="text-align:right;direction:rtl;">
+        يقع فندق قصر السحاب في مدينة خميس مشيط طريق الملك فيصل
+    <br>
+    للاستفسار ت/
+    <a href="tel:172233939" onclick="sysopenlink($(this).attr('href'))">172233939</a>
+     تحويله 222 خدمات الحجز /122 الحفلات/444
+    <br>
+    حجز الغرف ج/
+
+    <a href="tel:0569890848" onclick="sysopenlink($(this).attr('href'))">  0569890848</a>
+    /
+
+    <a href="tel:0569892797" onclick="sysopenlink($(this).attr('href'))"> 0569892797</a>
+    <br>
+    حجز القاعات والحفلات /
+
+      <a href="tel:0569893954" onclick="sysopenlink($(this).attr('href'))"> 0569893954</a>
+
+    <br>
+    البريد الالكتروني/
+
+    <a href="mailto:qasralsahab@hotmail.com" onclick="sysopenlink($(this).attr('href'))">qasralsahab@hotmail.com</a>
+    <a href="geo:18.299304,42.717757" onclick="sysopenlink($(this).attr('href'))">
+<img src="images/map.jpg" style="width:100%"/>
+       الموقع على خريطة جوجل </a>
+    <br>
+  </p>
+
+      </div>
+
+      <div data-role="footer">
+        <h1> </h1>
+      </div>
+    </div>
+
+    <div data-role="page" data-dialog="true" id="pageabout">
+      <div data-role="header">
+        <h1>عن الفندق</h1>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <div style="direction:rtl;text-align:right;">
+        			<ul>
+        <li>يقع الفندق في مدينة خميس مشيط ويقدم إقامة ذات أربع نجوم فاخرة ويشمل نادي صحي وصالون حلاقه رجالي . كما يوفر الفندق للنزلاء مسبح، ومركز لخدمة رجال الأعمال .</li>
+        <li>يقدم الفندق الفاخر خدمة مواقف السيارات ويتميز بحديقة الشاي في الهواء الطلق. طاقم الموظفين متوافر 24 ساعة على مدار الأسبوع .</li>
+        <li>يقدم الفندق غرفاً فسيحة وحديثة مميزة بإطلالة على منظر الخميس الخلابة ومجهزة بمكيفات الهواء-بتلفزيون – ثلاجة صغير ومشروبات وطاقم القهوة المجانية . كل غرفة تشمل حمام خاص فيه مجفف شعر وحوض استحمام. ومستلزمات العناية الحديثة والمتطورة.</li>
+        <li>بإمكان ضيوف الفندق تناول المأكولات الشرقية والغربية والإيطالية في المطعم بشكل يناسب هؤلاء الذين يرغبون بالبقاء قريبين لتناول وجبة. كما يمكن للزوار في كل أمسية الاستمتاع بالمشروبات في مقهى بالدور السادس المطل .</li>
+        <li>ويضم الفندق أجمل قاعة لإقامة حفلات الزواج والمؤتمرات.</li>
+        <li>يقع مطار أبها الدولي ضمن مسافة ما يقارب 25 دقيقة بالسيارة عن فندق وأجنحة قصر السحاب.</li>
+        </ul>
+<img src="images/about.jpg" style="width:100%"/>
+        		</div>
+      </div>
+      <div data-role="footer">
+        <h1> </h1>
+      </div>
+    </div>
+
+</body>
+
+</html>
